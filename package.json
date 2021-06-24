@@ -1,0 +1,18 @@
+{
+  "name": "depcruise-repro",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "deps:generate": "depcruise --config .dependency-cruiser.js --output-type archi . > deps-graph.dot; dot deps-graph.dot -Gordering=in -Tpng -o deps-graph.png"
+  },
+  "devDependencies": {
+    "@types/node": "^15.12.4",
+    "dependency-cruiser": "^10.0.2",
+    "react": "^17.0.2",
+    "typescript": "^4.3.4"
+  },
+  "workspaces": [
+    "@packages/*",
+    "@applications/*"
+  ]
+}

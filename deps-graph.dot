@@ -1,0 +1,15 @@
+strict digraph "dependency-cruiser output"{
+    ordering="out" rankdir="LR" splines="true" overlap="false" nodesep="0.16" ranksep="0.18" fontname="Helvetica-bold" fontsize="9" style="rounded,bold,filled" fillcolor="#ffffff" compound="true"
+    node [shape="box" style="rounded, filled" height="0.2" color="black" fillcolor="#ffffcc" fontcolor="black" fontname="Helvetica" fontsize="9"]
+    edge [arrowhead="normal" arrowsize="0.6" penwidth="2.0" color="#00000033" fontname="Helvetica" fontsize="9"]
+
+    ".dependency-cruiser.js" [label=".dependency-cruiser.js" URL=".dependency-cruiser.js" fillcolor="#ccffcc"]
+    subgraph "cluster_@applications" {label="@applications" "@applications/app" [label="app" tooltip="no-orphans" URL="@applications/app" fontcolor="orange" color="orange" shape="box3d"] }
+    "@applications/app" -> "next" [xlabel="not-to-unresolvable" tooltip="not-to-unresolvable" fontcolor="red" color="red"]
+    "@applications/app" -> "next/image-types/global" [xlabel="not-to-unresolvable" tooltip="not-to-unresolvable" fontcolor="red" color="red"]
+    "@applications/app" -> "next/types/global" [xlabel="not-to-unresolvable" tooltip="not-to-unresolvable" fontcolor="red" color="red"]
+    subgraph "cluster_@packages" {label="@packages" "@packages/shared" [label="shared" tooltip="no-orphans" URL="@packages/shared" fillcolor="#ccffcc" fontcolor="orange" color="orange" shape="box3d"] }
+    "next" [label="next" color="red" fontcolor="red"]
+    subgraph "cluster_next" {label="next" subgraph "cluster_next/image-types" {label="image-types" "next/image-types/global" [label="global" color="red" fontcolor="red"] } }
+    subgraph "cluster_next" {label="next" subgraph "cluster_next/types" {label="types" "next/types/global" [label="global" color="red" fontcolor="red"] } }
+}

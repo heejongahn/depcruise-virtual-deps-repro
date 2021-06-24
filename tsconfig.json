@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "isolatedModules": true,
+    "strict": true,
+    "allowJs": false,
+    "declaration": true,
+    "allowSyntheticDefaultImports": true,
+    "resolveJsonModule": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "preserveConstEnums": true,
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES5",
+    "lib": ["esnext", "DOM", "DOM.Iterable"],
+    "jsx": "preserve",
+    "skipLibCheck": true
+  },
+  "exclude": ["**/*.test.ts", "**/*.spec.ts"]
+}
