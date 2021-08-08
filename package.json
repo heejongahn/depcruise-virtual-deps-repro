@@ -3,11 +3,14 @@
   "private": true,
   "version": "1.0.0",
   "scripts": {
-    "deps:generate": "depcruise --config .dependency-cruiser.js --output-type archi . > deps-graph.dot; dot deps-graph.dot -Gordering=in -Tpng -o deps-graph.png"
+    "deps:generate": "depcruise --config .dependency-cruiser.js --output-type archi @* | tee deps-graph.dot | dot -Gordering=in -Tpng -o deps-graph.png",
+    "dc:svg": "depcruise @applications --config .dependency-cruiser.js --output-type dot | dot -Grankdir=TD -Gsplines=ortho -Gordering=in -Tsvg > deps-graph-module-level.svg",
+    "dc:text": "depcruise @applications --config .dependency-cruiser.js --output-type text",
+    "dc:json": "depcruise @applications --config .dependency-cruiser.js --output-type json"
   },
   "devDependencies": {
     "@types/node": "^15.12.4",
-    "dependency-cruiser": "^10.0.2",
+    "dependency-cruiser": "10.1.0-beta-2",
     "react": "^17.0.2",
     "typescript": "^4.3.4"
   },
