@@ -157,15 +157,15 @@ module.exports = {
       ],
     },
 
-    exclude: {
-      path: "^(.yarn|.pnp.js)",
-    },
+    // exclude: {
+    //   path: "^(.yarn|.pnp.js)",
+    // },
 
     tsPreCompilationDeps: true,
 
     combinedDependencies: true,
 
-    preserveSymlinks: true,
+    // preserveSymlinks: true,
 
     tsConfig: {
       fileName: "tsconfig.json",
@@ -214,7 +214,7 @@ module.exports = {
           dependency graph reporter (`archi`) you probably want to tweak
           this collapsePattern to your situation.
         */
-        collapsePattern: "^(node_modules|@packages|@applications)/[^/]+",
+        collapsePattern: "(node_modules|^@packages|^@applications)/[^/]+",
 
         /* Options to tweak the appearance of your graph.See
            https://github.com/sverweij/dependency-cruiser/blob/master/doc/options-reference.md#reporteroptions
